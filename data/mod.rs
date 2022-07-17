@@ -10,16 +10,7 @@ pub struct Image {
 }
 
 impl Image {
-    pub fn _new(content: Vec<String>, width: usize, height: usize) -> Image {
-        Image {
-            array: vec![0; width * height],
-            content: content,
-            width: width,
-            height: height,
-        }
-    }
-
-    pub fn _from_text(file_name: &str) -> Image {
+    pub fn from_text(file_name: &str) -> Image {
         let src = file_name.to_string();
         let text = text::read(src.clone()).unwrap();
         let lines = text::split(text.content.clone(), "\r\n");
@@ -41,6 +32,6 @@ impl Image {
 }
 
 pub struct Player {
-    //skin: Image,
+    pub skin: Image,
     pub position: (u64, u64),
 }
